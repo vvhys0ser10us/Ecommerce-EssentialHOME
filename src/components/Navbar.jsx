@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import logo from '../assets/logo.svg'
 import { Link } from 'react-router-dom'
-import CartButton from './CartButton'
+import CartButtons from './CartButtons'
 import { FaBars } from 'react-icons/fa'
+import Navlinks from './Navlinks'
 
 const Navbar = () => {
+  const [showSidebar, setShowSidebar] = useState(false)
+
   return (
     <NavContainer>
       <div className="nav-center">
@@ -13,27 +16,14 @@ const Navbar = () => {
           <img className="logo" src={logo} alt="logo" />
         </Link>
 
-        <ul className="nav-links">
-          <li>
-            <Link className="nav-link" to="/">
-              home
-            </Link>
-          </li>
-          <li>
-            <Link className="nav-link" to="about">
-              about
-            </Link>
-          </li>
-          <li>
-            <Link className="nav-link" to="products">
-              products
-            </Link>
-          </li>
-        </ul>
+        <Navlinks />
 
-        <CartButton className="nav-btns"></CartButton>
+        <CartButtons className="cart-btns"></CartButtons>
 
-        <button className="sidebar-btn">
+        <button
+          className="sidebar-btn"
+          onClick={() => setShowSidebar(!showSidebar)}
+        >
           <FaBars></FaBars>
         </button>
       </div>
@@ -58,7 +48,7 @@ const NavContainer = styled.nav`
     display: none;
   }
 
-  .nav-btns {
+  .cart-btns {
     display: none;
   }
 
@@ -84,7 +74,7 @@ const NavContainer = styled.nav`
       display: none;
     }
 
-    .nav-btns {
+    .cart-btns {
       display: grid;
     }
 

@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 import { FaShoppingCart, FaUserMinus, FaUserPlus } from 'react-icons/fa'
 import styled from 'styled-components'
 
-const CartButton = () => {
+const CartButtons = () => {
   return (
-    <Wrapper className="nav-btns">
+    <Wrapper className="cart-btns">
       <Link to="cart" className="cart-btn">
         Cart
         <span className="cart-container">
@@ -72,4 +72,4 @@ const Wrapper = styled.div`
   }
 `
 
-export default CartButton
+export default CartButtons
