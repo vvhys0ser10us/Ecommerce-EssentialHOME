@@ -6,7 +6,7 @@ import Navlinks from './Navlinks'
 import CartButtons from './CartButtons'
 
 const Sidebar = () => {
-  const [showSidebar, setShowSidebar] = useState(true)
+  const [showSidebar, setShowSidebar] = useState(false)
 
   return (
     <SidebarWrapper>

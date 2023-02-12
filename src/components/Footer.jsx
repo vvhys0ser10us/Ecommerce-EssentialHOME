@@ -14,6 +14,7 @@ const Footer = () => {
 }
 
 const Wrapper = styled.footer`
+  height: 5rem;
   background: var(--clr-black);
   display: grid;
   place-items: center;
