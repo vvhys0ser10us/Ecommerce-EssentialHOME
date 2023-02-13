@@ -19,7 +19,7 @@ const Sidebar = () => {
           </button>
         </div>
 
-        <Navlinks />
+        <Navlinks closeSidebar={closeSidebar} />
         <CartButtons />
       </aside>
     </SidebarWrapper>
