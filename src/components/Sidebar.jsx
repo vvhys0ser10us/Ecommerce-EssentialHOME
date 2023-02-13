@@ -66,6 +66,7 @@ const SidebarWrapper = styled.div`
   }
 
   .nav-link {
+    display: block;
     color: var(--clr-grey-4);
     text-transform: capitalize;
     letter-spacing: var(--spacing);
