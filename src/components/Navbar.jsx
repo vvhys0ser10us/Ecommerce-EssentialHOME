@@ -1,13 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import logo from '../assets/logo.svg'
 import { Link } from 'react-router-dom'
 import CartButtons from './CartButtons'
 import { FaBars } from 'react-icons/fa'
 import Navlinks from './Navlinks'
+import { useProductsContext } from '../context/products_context'
 
 const Navbar = () => {
-  const [showSidebar, setShowSidebar] = useState(false)
+  const { openSidebar } = useProductsContext()
 
   return (
     <NavContainer>
@@ -20,10 +21,7 @@ const Navbar = () => {
 
         <CartButtons className="cart-btns"></CartButtons>
 
-        <button
-          className="sidebar-btn"
-          onClick={() => setShowSidebar(!showSidebar)}
-        >
+        <button className="sidebar-btn" onClick={() => openSidebar()}>
           <FaBars></FaBars>
         </button>
       </div>

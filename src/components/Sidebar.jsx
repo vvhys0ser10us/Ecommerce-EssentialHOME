@@ -1,22 +1,20 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import logo from '../assets/logo.svg'
 import { FaTimes } from 'react-icons/fa'
 import Navlinks from './Navlinks'
 import CartButtons from './CartButtons'
+import { useProductsContext } from '../context/products_context'
 
 const Sidebar = () => {
-  const [showSidebar, setShowSidebar] = useState(false)
+  const { showSidebar, closeSidebar } = useProductsContext()
 
   return (
     <SidebarWrapper>
       <aside className={showSidebar ? 'sidebar show-sidebar' : 'sidebar'}>
         <div className="sidebar-header">
           <img className="logo" src={logo} alt="logo" />
-          <button
-            className="close-btn"
-            onClick={() => setShowSidebar(!showSidebar)}
-          >
+          <button className="close-btn" onClick={() => closeSidebar()}>
             <FaTimes />
           </button>
         </div>
