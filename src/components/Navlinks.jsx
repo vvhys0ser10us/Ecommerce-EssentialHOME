@@ -1,7 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useProductsContext } from '../context/products_context'
 
-const Navlinks = ({ closeSidebar }) => {
+const Navlinks = () => {
+  const { closeSidebar } = useProductsContext()
+
   return (
     <ul className="nav-links">
       <li>
