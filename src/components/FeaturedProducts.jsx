@@ -31,7 +31,7 @@ const FeaturedProducts = () => {
             <div className="underline"></div>
           </div>
 
-          <h1 className="error">Error showing products</h1>
+          <h1 className="error">Error Fetching Products</h1>
         </div>
       </Wrapper>
     )
