@@ -6,8 +6,11 @@ import {
   FETCH_PRODUCTS_BEGIN,
   FETCH_PRODUCTS_FINISH,
   FETCH_PRODUCTS_ERROR,
+  FETCH_SPRODUCT_BEGIN,
+  FETCH_SPRODUCT_ERROR,
+  FETCH_SPRODUCT_FINISH,
 } from '../actions'
-import { products_url } from '../utils/constants'
+import { products_url, single_product_url } from '../utils/constants'
 import axios from 'axios'
 
 const ProductsContext = createContext()
@@ -18,6 +21,9 @@ const initialState = {
   error: false,
   products: [],
   feat_products: [],
+  singleProduct: {},
+  s_isLodaing: false,
+  s_error: false,
 }
 
 const ProductsProvider = ({ children }) => {
@@ -43,12 +49,26 @@ const ProductsProvider = ({ children }) => {
     }
   }
 
+  const fetchSingleProduct = async (id) => {
+    dispatch({ type: FETCH_SPRODUCT_BEGIN })
+    try {
+      const response = await axios(`${single_product_url}${id}`)
+      const data = await response.data
+      console.log(data)
+      dispatch({ type: FETCH_SPRODUCT_FINISH, payload: data })
+    } catch (error) {
+      dispatch({ type: FETCH_SPRODUCT_ERROR })
+    }
+  }
+
   useEffect(() => {
     fetchProducts(products_url)
   }, [])
 
   return (
-    <ProductsContext.Provider value={{ ...state, openSidebar, closeSidebar }}>
+    <ProductsContext.Provider
+      value={{ ...state, openSidebar, closeSidebar, fetchSingleProduct }}
+    >
       {children}
     </ProductsContext.Provider>
   )
