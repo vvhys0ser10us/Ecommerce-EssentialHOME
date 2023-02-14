@@ -8,6 +8,7 @@ import Hero from './Hero'
 import Services from './Services'
 import Loading from './Loading'
 import Error from './Error'
+import ProductImages from './ProductImages'
 
 export {
   Navbar,
@@ -20,4 +21,5 @@ export {
   Services,
   Loading,
   Error,
+  ProductImages,
 }
