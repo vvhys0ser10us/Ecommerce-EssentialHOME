@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useProductsContext } from '../context/products_context'
 import { PageHero } from '../components'
-import { Loading, Error, ProductImages, Stars } from '../components'
+import { Loading, Error, ProductImages, Stars, AddToCart } from '../components'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { formatPrice } from '../utils/helpers'
@@ -36,7 +36,7 @@ const SingleProduct = () => {
     stock,
     stars,
     reviews,
-    shipping,
+    colors,
     company,
   } = singleProduct
 
@@ -57,7 +57,7 @@ const SingleProduct = () => {
               <h5 className="price">{formatPrice(price)}</h5>
               <p className="description">{description}</p>
               <p className="info">
-                <span>Available :</span>{' '}
+                <span>Available :</span>
                 {stock > 0 ? 'in stock' : 'out of stock'}
               </p>
               <p className="info">
@@ -67,7 +67,7 @@ const SingleProduct = () => {
                 <span>Brand :</span> {company}
               </p>
               <hr />
-              {stock > 0 && <div>Add to cart</div>}
+              {stock > 0 && <AddToCart {...singleProduct}></AddToCart>}
             </div>
           </article>
         </section>
