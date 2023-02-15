@@ -4,7 +4,14 @@ import styled from 'styled-components'
 import { useFilterContext } from '../context/filter_context'
 
 const Sort = () => {
-  const { setGrid, setList, grid_view } = useFilterContext()
+  const {
+    setGrid,
+    setList,
+    grid_view,
+    sort,
+    setSort,
+    filtered_products: products,
+  } = useFilterContext()
 
   return (
     <Wrapper>
@@ -17,11 +24,17 @@ const Sort = () => {
         </button>
       </div>
 
-      <p>22 products found</p>
+      <p>{products.length} products found</p>
       <hr />
       <form>
         <label htmlFor="sort">Sort By</label>
-        <select name="sort" id="sort" className="sort-input">
+        <select
+          name="sort"
+          id="sort"
+          className="sort-input"
+          value={sort}
+          onChange={setSort}
+        >
           <option value="price-lowest">price (lowest)</option>
           <option value="price-highest">price (highest)</option>
           <option value="name_a-z">name (a - z)</option>
