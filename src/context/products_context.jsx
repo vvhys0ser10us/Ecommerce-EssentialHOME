@@ -42,7 +42,6 @@ const ProductsProvider = ({ children }) => {
     try {
       const response = await axios(url)
       const data = await response.data
-      console.log(data)
       dispatch({ type: FETCH_PRODUCTS_FINISH, payload: data })
     } catch (error) {
       dispatch({ type: FETCH_PRODUCTS_ERROR })
@@ -54,7 +53,6 @@ const ProductsProvider = ({ children }) => {
     try {
       const response = await axios(`${single_product_url}${id}`)
       const data = await response.data
-      console.log(data)
       dispatch({ type: FETCH_SPRODUCT_FINISH, payload: data })
     } catch (error) {
       dispatch({ type: FETCH_SPRODUCT_ERROR })
