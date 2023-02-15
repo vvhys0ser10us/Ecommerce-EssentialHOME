@@ -6,24 +6,23 @@ const ProductImages = ({ images }) => {
   console.log(images)
 
   return (
-    <Wrapper className="section-center">
-      <div className="image-container">
-        <img
-          className="big-image"
-          src={images?.[value]?.url}
-          alt="product image"
-        />
-      </div>
+    <Wrapper>
+      <img
+        className="big-image"
+        src={images?.[value]?.url}
+        alt="product image"
+      />
+
       <div className="thumbnails">
         {images?.map((image, index) => {
           return (
-            <div
+            <img
+              src={image.url}
+              alt="product image"
               className={index === value ? 'thumbnail selected' : 'thumbnail'}
               key={image.id}
               onClick={() => setValue(index)}
-            >
-              <img src={image.url} alt="product image" />
-            </div>
+            />
           )
         })}
       </div>
@@ -32,12 +31,6 @@ const ProductImages = ({ images }) => {
 }
 
 const Wrapper = styled.div`
-  margin-top: 2rem;
-
-  .image-container {
-    border-radius: var(--radius);
-    margin-bottom: 1rem;
-  }
   img {
     width: 100%;
     height: 100%;
@@ -48,16 +41,19 @@ const Wrapper = styled.div`
 
   .big-image {
     height: 600px;
+    margin-bottom: 1rem;
   }
 
   .thumbnails {
     display: grid;
-    column-gap: 1rem;
     grid-template-columns: repeat(5, 1fr);
+    column-gap: 1rem;
   }
 
   .thumbnail {
     border-radius: var(--radius);
+    cursor: pointer;
+    height: 100px;
   }
 
   .selected {
