@@ -29,7 +29,7 @@ const FilterProvider = ({ children }) => {
 
   useEffect(() => {
     dispatch({ type: SORT_PRODUCTS })
-  }, [state.sort])
+  }, [state.sort, products])
 
   const setGrid = () => {
     dispatch({ type: SET_GRID })
