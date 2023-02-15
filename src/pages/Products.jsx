@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { PageHero, ProductList } from '../components'
+import { Filters, PageHero, ProductList, Sort } from '../components'
 
 const Products = () => {
   return (
@@ -8,9 +8,9 @@ const Products = () => {
       <PageHero title="products"></PageHero>
       <Wrapper className="page">
         <div className="section-center products">
-          <div>Filter</div>
+          <Filters></Filters>
           <div>
-            <div>sort</div>
+            <Sort></Sort>
             <ProductList></ProductList>
           </div>
         </div>
