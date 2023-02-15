@@ -7,7 +7,7 @@ import { FaSearch } from 'react-icons/fa'
 const Product = ({ image, price, name, id }) => {
   return (
     <Wrapper>
-      <Link to={`products/${id}`}>
+      <Link to={`/products/${id}`}>
         <div className="img-container">
           <img src={image} alt={name} />
           <span className="search-icon">
