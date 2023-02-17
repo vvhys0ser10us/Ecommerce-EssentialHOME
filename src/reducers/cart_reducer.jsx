@@ -1,7 +1,30 @@
-import React from 'react'
+import { ADD_TO_CART } from '../actions'
 
 const cart_reducer = (state, action) => {
-  return { ...state }
+  if (action.type === ADD_TO_CART) {
+    const { id, color, amount, product } = action.payload
+    let temp = state.cart.find((item) => item.id === id + color)
+    if (temp) {
+      const newCart = state.cart.filter((item) => item.id !== temp.id)
+      console.log(newCart)
+      let newAmount =
+        temp.amount + amount > temp.max ? temp.max : temp.amount + amount
+      temp = { ...temp, amount: newAmount }
+      return { ...state, cart: [...newCart, temp] }
+    } else {
+      const newItem = {
+        id: id + color,
+        amount,
+        price: product.price,
+        max: product.stock,
+        img: product.images[0].url,
+        color,
+      }
+      return { ...state, cart: [...state.cart, newItem] }
+    }
+
+    return { ...state }
+  }
 
   throw new Error(`No matching "${action.type}" -action type`)
 }
