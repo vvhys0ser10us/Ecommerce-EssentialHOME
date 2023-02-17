@@ -17,6 +17,8 @@ const Filters = () => {
       price,
       shipping,
     },
+    updateFilter,
+    clearFilter,
   } = useFilterContext()
 
   const categories = getUniqueValues(all_products, 'category')
@@ -34,6 +36,7 @@ const Filters = () => {
               value={text}
               placeholder="Search"
               className="search-input"
+              onChange={updateFilter}
             />
           </div>
 
@@ -44,11 +47,13 @@ const Filters = () => {
                 <button
                   key={index}
                   name="category"
+                  value={item}
                   className={
                     category === item.toLowerCase()
                       ? 'active category-btn'
                       : 'category-btn'
                   }
+                  onClick={updateFilter}
                 >
                   {item}
                 </button>
@@ -58,7 +63,12 @@ const Filters = () => {
 
           <div className="form-control">
             <h5>Company</h5>
-            <select name="company" value={company} className="company">
+            <select
+              name="company"
+              value={company}
+              className="company"
+              onChange={updateFilter}
+            >
               {companies.map((item, index) => {
                 return (
                   <option key={index} value={item}>
@@ -73,12 +83,13 @@ const Filters = () => {
             <h5>Color</h5>
             <div className="colors">
               {colors.map((item, index) => {
-                console.log(item)
                 if (item === 'all') {
                   return (
                     <button
                       key={index}
                       name="color"
+                      value={item}
+                      onClick={updateFilter}
                       className={
                         color === 'all'
                           ? 'category-btn all-btn active'
@@ -92,6 +103,9 @@ const Filters = () => {
                 return (
                   <ColorButton
                     key={index}
+                    value={item}
+                    name="color"
+                    onClick={updateFilter}
                     buttonColor={item}
                     className={color === item ? 'active' : ''}
                   >
@@ -111,6 +125,7 @@ const Filters = () => {
               min={min_price}
               max={max_price}
               value={price}
+              onChange={updateFilter}
             />
           </div>
 
@@ -121,10 +136,13 @@ const Filters = () => {
               name="shipping"
               id="shipping"
               checked={shipping}
+              onChange={updateFilter}
             />
           </div>
         </form>
-        <button className="clear-btn">clear filters</button>
+        <button className="clear-btn" onClick={clearFilter}>
+          clear filters
+        </button>
       </div>
     </Wrapper>
   )

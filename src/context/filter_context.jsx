@@ -6,6 +6,9 @@ import {
   SET_LIST,
   SET_SORT,
   SORT_PRODUCTS,
+  UPDATE_FILTER,
+  CLEAR_FILTER,
+  FILTER_PRODUCTS,
 } from '../actions'
 import { useProductsContext } from './products_context'
 
@@ -38,8 +41,9 @@ const FilterProvider = ({ children }) => {
   }, [products])
 
   useEffect(() => {
+    dispatch({ type: FILTER_PRODUCTS })
     dispatch({ type: SORT_PRODUCTS })
-  }, [state.sort, products])
+  }, [state.sort, state.filter])
 
   const setGrid = () => {
     dispatch({ type: SET_GRID })
@@ -53,8 +57,31 @@ const FilterProvider = ({ children }) => {
     dispatch({ type: SET_SORT, payload: e.target.value })
   }
 
+  const updateFilter = (e) => {
+    let name = e.target.name
+    let value = e.target.value
+    if (name === 'price') {
+      value = Number(value)
+    }
+
+    if (name === 'shipping') {
+      value = e.target.checked
+    }
+
+    dispatch({
+      type: UPDATE_FILTER,
+      payload: { name, value },
+    })
+  }
+
+  const clearFilter = () => {
+    dispatch({ type: CLEAR_FILTER })
+  }
+
   return (
-    <FilterContext.Provider value={{ ...state, setList, setGrid, setSort }}>
+    <FilterContext.Provider
+      value={{ ...state, setList, setGrid, setSort, updateFilter, clearFilter }}
+    >
       {children}
     </FilterContext.Provider>
   )
