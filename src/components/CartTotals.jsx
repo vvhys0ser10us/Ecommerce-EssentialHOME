@@ -4,21 +4,21 @@ import { useCartContext } from '../context/cart_context'
 import { formatPrice } from '../utils/helpers'
 
 const CartTotals = () => {
-  const { total_amount, shipping } = useCartContext()
+  const { total_price, shipping } = useCartContext()
 
   return (
     <Wrapper>
       <div>
         <article>
           <h5>
-            subtotal :<span>{formatPrice(total_amount)}</span>
+            subtotal :<span>{formatPrice(total_price)}</span>
           </h5>
           <p>
             shipping fee :<span>{formatPrice(shipping)}</span>
           </p>
           <hr />
           <h4>
-            order total :<span>{formatPrice(total_amount + shipping)}</span>
+            order total :<span>{formatPrice(total_price + shipping)}</span>
           </h4>
         </article>
       </div>

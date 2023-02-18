@@ -1,7 +1,13 @@
 import { useContext, useReducer, useEffect } from 'react'
 import { createContext } from 'react'
 import cart_reducer from '../reducers/cart_reducer'
-import { ADD_TO_CART, CLEAR_CART, REMOVE_ITEM, TOGGLE_AMOUNT } from '../actions'
+import {
+  ADD_TO_CART,
+  CLEAR_CART,
+  REMOVE_ITEM,
+  TOGGLE_AMOUNT,
+  CALCULATE_TOTAL,
+} from '../actions'
 
 const CartContext = createContext()
 
@@ -18,7 +24,6 @@ const getLocalStorage = () => {
 const initialState = {
   cart: getLocalStorage(),
   total_items: 0,
-  total_amount: 0,
   shipping: 1500,
   total_price: 0,
 }
@@ -28,6 +33,10 @@ const CartProvider = ({ children }) => {
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(state.cart))
+  }, [state.cart])
+
+  useEffect(() => {
+    dispatch({ type: CALCULATE_TOTAL })
   }, [state.cart])
 
   const addToCart = (id, color, amount, product) => {

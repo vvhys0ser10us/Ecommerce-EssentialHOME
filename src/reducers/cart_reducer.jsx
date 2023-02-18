@@ -1,4 +1,10 @@
-import { ADD_TO_CART, CLEAR_CART, REMOVE_ITEM, TOGGLE_AMOUNT } from '../actions'
+import {
+  ADD_TO_CART,
+  CLEAR_CART,
+  REMOVE_ITEM,
+  TOGGLE_AMOUNT,
+  CALCULATE_TOTAL,
+} from '../actions'
 
 const cart_reducer = (state, action) => {
   if (action.type === ADD_TO_CART) {
@@ -59,6 +65,17 @@ const cart_reducer = (state, action) => {
     return { ...state, cart: tempCart }
   }
 
+  if (action.type === CALCULATE_TOTAL) {
+    const total_items = state.cart.reduce((prev, curr) => {
+      return prev + curr.amount
+    }, 0)
+
+    const total_price = state.cart.reduce((prev, curr) => {
+      return prev + curr.amount * curr.price
+    }, 0)
+
+    return { ...state, total_items, total_price }
+  }
   throw new Error(`No matching "${action.type}" -action type`)
 }
 
