@@ -41,7 +41,7 @@ const cart_reducer = (state, action) => {
 
   if (action.type === TOGGLE_AMOUNT) {
     const { id, value } = action.payload
-    const tempCart = state.cart
+    const newCart = state.cart
       .map((item) => {
         if (item.id === id) {
           if (value === 'inc') {
@@ -62,7 +62,7 @@ const cart_reducer = (state, action) => {
         return item
       })
       .filter((item) => item.amount !== 0)
-    return { ...state, cart: tempCart }
+    return { ...state, cart: newCart }
   }
 
   if (action.type === CALCULATE_TOTAL) {
