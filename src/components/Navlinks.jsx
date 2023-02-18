@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useProductsContext } from '../context/products_context'
+import { useUserContext } from '../context/user_context'
 
 const Navlinks = () => {
   const { closeSidebar } = useProductsContext()
+  const { user } = useUserContext()
 
   return (
     <ul className="nav-links">
@@ -22,6 +24,13 @@ const Navlinks = () => {
           products
         </Link>
       </li>
+      {user && (
+        <li>
+          <Link className="nav-link" to="checkout" onClick={closeSidebar}>
+            checkout
+          </Link>
+        </li>
+      )}
     </ul>
   )
 }
