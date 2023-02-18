@@ -7,6 +7,7 @@ import Products from './Products'
 import SingleProduct from './SingleProduct'
 import Error from './Error'
 import PrivateRoute from './PrivateRoute'
+import AuthWrapper from './AuthWrapper'
 
 export {
   SharedLayout,
@@ -18,4 +19,5 @@ export {
   SingleProduct,
   Error,
   PrivateRoute,
+  AuthWrapper,
 }
