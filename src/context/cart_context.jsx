@@ -1,7 +1,7 @@
 import { useContext, useReducer, useEffect } from 'react'
 import { createContext } from 'react'
 import cart_reducer from '../reducers/cart_reducer'
-import { ADD_TO_CART, CLEAR_CART } from '../actions'
+import { ADD_TO_CART, CLEAR_CART, REMOVE_ITEM, TOGGLE_AMOUNT } from '../actions'
 
 const CartContext = createContext()
 
@@ -34,9 +34,13 @@ const CartProvider = ({ children }) => {
     dispatch({ type: ADD_TO_CART, payload: { id, color, amount, product } })
   }
 
-  const removeItem = () => {}
+  const removeItem = (id) => {
+    dispatch({ type: REMOVE_ITEM, payload: id })
+  }
 
-  const toggleAmount = (id, value) => {}
+  const toggleAmount = (id, value) => {
+    dispatch({ type: TOGGLE_AMOUNT, payload: { id, value } })
+  }
 
   const clearCart = () => {
     dispatch({ type: CLEAR_CART })
