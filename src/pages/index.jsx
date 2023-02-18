@@ -6,6 +6,7 @@ import Home from './Home'
 import Products from './Products'
 import SingleProduct from './SingleProduct'
 import Error from './Error'
+import PrivateRoute from './PrivateRoute'
 
 export {
   SharedLayout,
@@ -16,4 +17,5 @@ export {
   Products,
   SingleProduct,
   Error,
+  PrivateRoute,
 }

@@ -12,6 +12,7 @@ import {
   Products,
   SingleProduct,
   Error,
+  PrivateRoute,
 } from './pages'
 
 function App() {
@@ -31,7 +32,14 @@ function App() {
                       path="products/:id"
                       element={<SingleProduct />}
                     ></Route>
-                    <Route path="checkout" element={<Checkout />}></Route>
+                    <Route
+                      path="checkout"
+                      element={
+                        <PrivateRoute>
+                          <Checkout />
+                        </PrivateRoute>
+                      }
+                    ></Route>
                     <Route path="cart" element={<Cart />}></Route>
                     <Route path="*" element={<Error />}></Route>
                   </Route>
