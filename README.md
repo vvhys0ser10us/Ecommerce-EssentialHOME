@@ -7,4 +7,4 @@ Hosted on [Netlify](https://kz-ecommerce.netlify.app/)
 - ContextAPI + useReducer for state management
 - React router dom v6
 - Authentication: [Auth0](https://auth0.com/)
-- Payment, checkout: [Stripe](https://stripe.com/en-ca) with serverless functions
+- Payment, checkout: [Stripe](https://stripe.com/en-ca) with serverless functions (for testing)
