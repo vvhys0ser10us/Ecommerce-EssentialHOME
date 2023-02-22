@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import logo from '../assets/logo.svg'
+import Logo from './Logo'
 import { FaTimes } from 'react-icons/fa'
 import Navlinks from './Navlinks'
 import CartButtons from './CartButtons'
@@ -13,7 +13,7 @@ const Sidebar = () => {
     <SidebarWrapper>
       <aside className={showSidebar ? 'sidebar show-sidebar' : 'sidebar'}>
         <div className="sidebar-header">
-          <img className="logo" src={logo} alt="logo" />
+          <Logo></Logo>
           <button className="close-btn" onClick={() => closeSidebar()}>
             <FaTimes />
           </button>

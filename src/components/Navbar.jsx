@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import logo from '../assets/logo.svg'
+import Logo from './Logo'
 import { Link } from 'react-router-dom'
 import CartButtons from './CartButtons'
 import { FaBars } from 'react-icons/fa'
@@ -14,7 +14,7 @@ const Navbar = () => {
     <NavContainer>
       <div className="nav-center">
         <Link to="/">
-          <img className="logo" src={logo} alt="logo" />
+          <Logo></Logo>
         </Link>
 
         <Navlinks />

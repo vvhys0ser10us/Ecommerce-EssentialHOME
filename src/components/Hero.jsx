@@ -1,16 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import herobcg1 from '../assets/hero-bcg.jpeg'
-import herobcg2 from '../assets/hero-bcg-2.jpeg'
+import herobcg from '../assets/hero-bcg.svg'
 
 const Hero = () => {
   return (
     <Wrapper className="section-center">
+      <article className="hero-imgs">
+        <img className="hero-1" src={herobcg} alt="hero" />
+      </article>
+
       <article>
         <h1>
-          design your
-          <br /> comfort zone
+          find your
+          <br /> home essentials
         </h1>
         <p>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, at
@@ -21,11 +24,6 @@ const Hero = () => {
         <Link to="products" className="btn hero-btn">
           shop now
         </Link>
-      </article>
-
-      <article className="hero-imgs">
-        <img className="hero-1" src={herobcg1} alt="hero img" />
-        <img className="hero-2" src={herobcg2} alt="hero img" />
       </article>
     </Wrapper>
   )
@@ -68,17 +66,6 @@ const Wrapper = styled.section`
 
     .hero-imgs {
       display: block;
-      position: relative;
-      &::before {
-        content: '';
-        position: absolute;
-        width: 10%;
-        height: 80%;
-        background: var(--clr-primary-9);
-        bottom: 0%;
-        left: -8%;
-        border-radius: var(--radius);
-      }
     }
 
     .hero-1 {
@@ -86,16 +73,6 @@ const Wrapper = styled.section`
       height: 550px;
       border-radius: var(--radius);
       display: block;
-      object-fit: cover;
-      position: relative;
-    }
-
-    .hero-2 {
-      width: 250px;
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      transform: translateX(-50%);
     }
   }
 `

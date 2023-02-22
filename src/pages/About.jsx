@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import aboutImg from '../assets/hero-bcg.jpeg'
+import aboutImg from '../assets/about-img.svg'
 import { PageHero } from '../components'
 
 const About = () => {
@@ -36,7 +36,6 @@ const Wrapper = styled.section`
     display: block;
     border-radius: var(--radius);
     height: 500px;
-    object-fit: cover;
   }
   p {
     line-height: 2;
