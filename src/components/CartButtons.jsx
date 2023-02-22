@@ -42,8 +42,9 @@ const CartButtons = () => {
 const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
+  column-gap: 0.5rem;
   align-items: center;
-  width: 225px;
+  width: 250px;
   .cart-btn {
     color: var(--clr-grey-1);
     font-size: 1.5rem;

@@ -36,7 +36,7 @@ const Services = () => {
 }
 
 const Wrapper = styled.section`
-  background: var(--clr-primary-10);
+  background: var(--clr-white);
 
   h3,
   h4 {
@@ -60,7 +60,7 @@ const Wrapper = styled.section`
   }
 
   .service {
-    background: var(--clr-primary-7);
+    background: var(--clr-primary-8);
     text-align: center;
     padding: 2.5rem 2rem;
     border-radius: var(--radius);

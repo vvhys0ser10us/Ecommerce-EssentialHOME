@@ -28,6 +28,8 @@ const Contact = () => {
   )
 }
 const Wrapper = styled.section`
+  background: var(--clr-primary-10);
+
   h3 {
     text-transform: none;
   }

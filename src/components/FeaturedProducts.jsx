@@ -59,7 +59,7 @@ const FeaturedProducts = () => {
 }
 
 const Wrapper = styled.section`
-  background: var(--clr-grey-10);
+  background: var(--clr-primary-10);
 
   .error {
     text-align: center;
@@ -79,7 +79,7 @@ const Wrapper = styled.section`
   .btn {
     display: block;
     margin: 0 auto;
-    width: 8.75rem;
+    width: 10rem;
     text-align: center;
   }
 
