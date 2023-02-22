@@ -1,4 +1,4 @@
-#E-commerce website
+# E-commerce website
 
 Hosted on [Netlify](https://kz-ecommerce.netlify.app/)
 
